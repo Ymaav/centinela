@@ -9,22 +9,23 @@ Analizador de lecturas de un sensor de temperatura LM35 que convierte lecturas e
 Para ejecutar los programas, abre una terminal en la carpeta donde se encuentran los archivos y utiliza:
 
 ```bash
-python nombre_del_archivo.py
+python3 nombre_del_archivo.py
 ```
 
 Por ejemplo:
 
 ```bash
-python centinela.py
+python3 centinela.py
 ```
+El programa solicitara elegir una lista de datos en mV, el usuario escribira lista 1 o 2 respectivamente.
 
 Para el segundo programa:
 
 ```bash
-python sensor.py
+python3 sensor.py
 ```
 
-El programa solicitará las lecturas del sensor mediante `input()` y mostrará los resultados directamente en la terminal.
+El programa solicitará las lecturas del sensor mediante `input()` y mostrará los resultados directamente en la terminal. 
 
 ## 2. ¿Qué hace por dentro?
 
