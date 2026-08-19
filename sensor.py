@@ -1,12 +1,13 @@
 import unicodedata
+
 MV_POR_GRADO = 10
 UMBRAL_ADVERTENCIA_C = 40
 UMBRAL_CRITICO_C = 80
-RESPUESTAS = ("sí","si","yes")
+RESPUESTAS = ("sí", "si", "yes")
 
 while True:
     lectura_mv = float(input("Lectura del sensor en mv: "))
-    celsius_resultado = lectura_mv/MV_POR_GRADO
+    celsius_resultado = lectura_mv / MV_POR_GRADO
     if celsius_resultado < UMBRAL_ADVERTENCIA_C:
         estado = "Normal"
 
@@ -18,7 +19,9 @@ while True:
 
     print(f"Celsius: {celsius_resultado:.2f}°C\nEstado: {estado}")
 
-    continuar = unicodedata.normalize("NFC", input("¿Quiere continuar el programa? ").strip().lower())
+    continuar = unicodedata.normalize(
+        "NFC", input("¿Quiere continuar el programa? ").strip().lower()
+    )
     if continuar not in RESPUESTAS:
         print("Hasta luego!")
         break
