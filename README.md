@@ -6,26 +6,28 @@ Analizador de lecturas de un sensor de temperatura LM35 que convierte lecturas e
 
 ## 1. ¿Cómo se usa?
 
-Para ejecutar los programas, abre una terminal en la carpeta donde se encuentran los archivos y utiliza:
+El proyecto contiene dos programas.
+
+### Centinela — análisis de series de lecturas
+
+Instala las dependencias y ejecútalo:
 
 ```bash
-python3 nombre_del_archivo.py
+uv sync
+uv run centinela
 ```
 
-Por ejemplo:
+El programa pide elegir una de las dos listas de lecturas en mV (opción 1 o 2) y muestra el reporte del turno.
 
-```bash
-python3 centinela.py
-```
-El programa solicitara elegir una lista de datos en mV, el usuario escribira lista 1 o 2 respectivamente.
+### Sensor — lectura individual
 
-Para el segundo programa:
+Es un programa independiente que se ejecuta directamente:
 
 ```bash
 python3 sensor.py
 ```
 
-El programa solicitará las lecturas del sensor mediante `input()` y mostrará los resultados directamente en la terminal. 
+Pide una lectura del sensor en milivolts y devuelve la temperatura y su estado.
 
 ## 2. ¿Qué hace por dentro?
 

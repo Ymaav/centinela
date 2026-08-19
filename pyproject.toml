@@ -1,7 +1,7 @@
 [project]
 name = "centinela"
 version = "0.1.0"
-description = "Add your description here"
+description = "Analizador de lecturas de un sensor de temperatura LM35"
 readme = "README.md"
 authors = [
     { name = "Jamaav", email = "jaamavcode@gmail.com" }
@@ -10,7 +10,7 @@ requires-python = ">=3.14"
 dependencies = []
 
 [project.scripts]
-centinela = "centinela:main"
+centinela = "centinela.analisis:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
