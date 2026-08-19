@@ -53,14 +53,17 @@ def mostrar_reporte(reporte, temp_c):
     print(f"Lecturas críticas: {criticas}")
     print(f"Porcentaje de lecturas críticas: {porcentaje:.2f}%")
 
-while True:
-    lecturas_mv = pedir_lista()
-    temp_c = mv_a_celsius(lecturas_mv)
-    resultados = analizar_lecturas(temp_c)
-    mostrar_reporte(resultados, temp_c)
+def main():
+    while True:
+        lecturas_mv = pedir_lista()
+        temp_c = mv_a_celsius(lecturas_mv)
+        resultados = analizar_lecturas(temp_c)
+        mostrar_reporte(resultados, temp_c)
     
-    continuar = input("\n¿Desea realizar otra operación? (sí/no): ").strip().lower()
-    if continuar not in ("sí", "si", "yes"):
-        break
+        continuar = input("\n¿Desea realizar otra operación? (sí/no): ").strip().lower()
+        if continuar not in ("sí", "si", "yes"):
+            break
     
-print(analizar_lecturas(mv_a_celsius(LECTURAS_MV_POSITIVAS)))
+if __name__ == "__main__":
+    main()
+    print(analizar_lecturas(mv_a_celsius(LECTURAS_MV_POSITIVAS)))
