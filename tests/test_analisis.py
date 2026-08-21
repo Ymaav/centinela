@@ -31,3 +31,8 @@ def test_maximo_del_turno_negativo():
     suma, maximo, criticas, porcentaje = analizar_lecturas(temperaturas_c)
 
     assert maximo == pytest.approx(-9.52)
+
+
+def test_lista_vacia_lanza_error():
+    with pytest.raises(ValueError):
+        analizar_lecturas([])

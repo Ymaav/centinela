@@ -24,6 +24,8 @@ def mv_a_celsius(lecturas_mv):
 
 
 def analizar_lecturas(temperaturas_c):
+    if not temperaturas_c:
+        raise ValueError("No hay lecturas que analizar: la lista esta vacia")
     suma = sum(temperaturas_c)
     maximo = max(temperaturas_c)
     criticas = [elemento for elemento in temperaturas_c if elemento > UMBRAL_CRITICO_C]
