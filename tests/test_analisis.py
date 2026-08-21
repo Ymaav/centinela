@@ -21,8 +21,10 @@ def test_porcentaje_de_criticas():
 
     assert porcentaje == pytest.approx(37.5)
 
+
 def test_conversion_de_una_lectura():
     assert mv_a_celsius([253.7]) == pytest.approx([25.37])
+
 
 def test_maximo_del_turno_negativo():
     temperaturas_c = mv_a_celsius(LECTURAS_MV_NEGATIVAS)

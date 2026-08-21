@@ -20,11 +20,7 @@ def pedir_lista():
 
 
 def mv_a_celsius(lecturas_mv):
-    lista_a_celsius = []
-    for elemento in lecturas_mv:
-        temp_c = elemento / MV_POR_GRADO
-        lista_a_celsius.append(temp_c)
-    return lista_a_celsius
+    return [elemento / MV_POR_GRADO for elemento in lecturas_mv]
 
 
 def analizar_lecturas(temp_c):
