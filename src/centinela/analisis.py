@@ -23,20 +23,11 @@ def mv_a_celsius(lecturas_mv):
     return [elemento / MV_POR_GRADO for elemento in lecturas_mv]
 
 
-def analizar_lecturas(temp_c):
-    suma = 0
-    maximo = temp_c[0]
-    criticas = []
-    for elemento in temp_c:
-        # Suma
-        suma += elemento
-
-        maximo = max(maximo, elemento)
-
-        # Lecturas criticas
-        if elemento > UMBRAL_CRITICO_C:
-            criticas.append(elemento)
-    porcentaje = len(criticas) / len(temp_c) * 100
+def analizar_lecturas(temperaturas_c):
+    suma = sum(temperaturas_c)
+    maximo = max(temperaturas_c)
+    criticas = [elemento for elemento in temperaturas_c if elemento > UMBRAL_CRITICO_C]
+    porcentaje = len(criticas) / len(temperaturas_c) * 100
 
     return suma, maximo, criticas, porcentaje
 
@@ -56,9 +47,9 @@ def mostrar_reporte(reporte, temp_c):
 def main():
     while True:
         lecturas_mv = pedir_lista()
-        temp_c = mv_a_celsius(lecturas_mv)
-        resultados = analizar_lecturas(temp_c)
-        mostrar_reporte(resultados, temp_c)
+        temperaturas_c = mv_a_celsius(lecturas_mv)
+        resultados = analizar_lecturas(temperaturas_c)
+        mostrar_reporte(resultados, temperaturas_c)
 
         continuar = input("\n¿Desea realizar otra operación? (sí/no): ").strip().lower()
         if continuar not in ("sí", "si", "yes"):
