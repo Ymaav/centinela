@@ -4,6 +4,15 @@ MV_POR_GRADO = 10
 UMBRAL_CRITICO_C = 80  # Esta en celsius.
 
 
+def cargar_lecturas_mv(ruta):
+    lecturas = []
+    with open(ruta) as archivo:
+        archivo.readline()
+        for linea in archivo:
+            lecturas.append(float(linea.strip().split(",")[1]))
+    return lecturas
+
+
 def pedir_lista():
 
     print(
