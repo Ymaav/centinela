@@ -1,5 +1,3 @@
-LECTURAS_MV_POSITIVAS = [253.7, 550.0, 812.3, 190.5, 402.1, 905.6, 380.0, 811.9]
-LECTURAS_MV_NEGATIVAS = [-150.0, -180.5, -95.2, -210.8, -175.3]
 MV_POR_GRADO = 10
 UMBRAL_CRITICO_C = 80  # Esta en celsius.
 
@@ -14,17 +12,16 @@ def cargar_lecturas_mv(ruta):
 
 
 def pedir_lista():
-
     print(
         "Que lista desea utilizar? \n1.Lista de lecturas positivas \n2.Lista de lecturas negativas"
     )
     decision = input("Ingrese el numero de la opcion deseada: ")
     if decision == "1":
-        return LECTURAS_MV_POSITIVAS
+        return "datos/turno_positivo.csv"
     elif decision == "2":
-        return LECTURAS_MV_NEGATIVAS
+        return "datos/turno_negativo.csv"
     else:
-        print("\nOpcion ivalida. Por favor, ingrese 1 o 2.\n")
+        print("\nOpcion invalida. Por favor, ingrese 1 o 2.\n")
         return pedir_lista()
 
 
@@ -57,7 +54,8 @@ def mostrar_reporte(reporte, temp_c):
 
 def main():
     while True:
-        lecturas_mv = pedir_lista()
+        ruta = pedir_lista()
+        lecturas_mv = cargar_lecturas_mv(ruta)
         temperaturas_c = mv_a_celsius(lecturas_mv)
         resultados = analizar_lecturas(temperaturas_c)
         mostrar_reporte(resultados, temperaturas_c)
@@ -69,4 +67,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print(analizar_lecturas(mv_a_celsius(LECTURAS_MV_POSITIVAS)))
